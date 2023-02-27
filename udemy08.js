@@ -1,4 +1,4 @@
-// 큇정렬
+// 큇정렬(n log n - 이미 배열이 정렬되어 있으면 안좋은 방식)
 
     // 1. 피봇 helper함수 구현
     function pivot(arr, start=0, end=arr.length+1){
