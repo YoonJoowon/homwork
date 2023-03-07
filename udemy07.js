@@ -1,9 +1,10 @@
-// 합병정렬
+// 합병정렬 ( O(n log n) - 특수한 상황이 아닐경우 가장 좋은 정렬)
     
     // for vs while
     // for : for 반복문은 어떤 특정한 조건이 거짓으로 판별될 때까지 반복합니다.
     //  while : while 문은 어떤 조건문이 참이기만 하면 문장을 계속해서 수행합니다.
 
+    // 내림차순으로 두 배열 합침
     function merge(arr1, arr2){
         let results = [];
         let i = 0;
@@ -30,8 +31,8 @@
         // 두 배열 중 하나의 루프가 다 끝났을때 남은 하나 모두 푸쉬
         return results;
     }
-    merge([100],[1,2,3,4,5,6])
 
+    // 합친 배열 하나를 쪼개서 반환
     function mergeSort(arr){
         if(arr.length <= 1) return arr;
         let mid = math.floor(arr.length/2);
@@ -41,3 +42,4 @@
         // 끝 범위는 굳이 안적어도 됨
         return merge(left, right);
     }
+    mergeSort([3, 7, 76, 73]);
