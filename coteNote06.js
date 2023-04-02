@@ -213,10 +213,3 @@ for (let i = 1 ; i <= length; i ++) {
     answer += '\n'
 }
 console.log(answer)
-
-
-
-
-
-
-
