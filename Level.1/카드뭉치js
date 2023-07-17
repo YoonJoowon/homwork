@@ -9,7 +9,7 @@ function solution(cards1, cards2, goal) {
         } else if (goal[i] === cards2[0]){
             cards2.shift();
         } else {
-            //없을 경우 그대로 no resturn 
+            //없을 경우 그대로F no resturn 
             return 'No'            
         }
     }   
