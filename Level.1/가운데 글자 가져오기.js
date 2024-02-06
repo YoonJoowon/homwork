@@ -31,3 +31,9 @@ function solution(s) {
 
   return answer;
 }
+
+// 3try
+function solution(s) {
+  let len = Math.floor(s.length / 2); // len을 정수로 변환
+  return s.length % 2 === 0 ? s[len - 1] + s[len] : s[len];
+}
