@@ -1,4 +1,10 @@
-function solution(n) { 
-  return Number(n.toString().split('').sort((a, b) => b-a).join(''))
-   
+function solution(x) {
+  let sum = 0;
+  let arr = x.toString().split("");
+  
+  console.log(arr);
+  for(let i=0; i<arr.length; i++){
+      sum += Number(arr[i])
+  }
+  return (x % sum == 0) ? true : false;
 }
