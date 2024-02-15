@@ -1,0 +1,502 @@
+//문자열 자르기
+1//. slice
+// 형태
+문자열.slice(시작위치, 종료위치)
+
+// 예시
+var str = "0123456789"
+
+// 시작 위치부터 종료 위치까지 자른다. 시작 위치~종료 위치-1 까지
+str.slice(시작위치, 종료위치);
+// 종료 위치 생략시에 시작 위치부터 끝까지 자른다.
+str.slice(시작위치);
+
+// 12 출력
+console.log(str.slice(1,3));
+//시작인덱스부터 종료인덱스-1까지 자른다. 위에 substring이랑 동일하지만, 음수 인덱스를 넣는데 자유롭다.
+
+
+
+
+//문자열 대소문자 변환
+//1. toUpperCase 대문자 변환
+var str = "aAbBcCdD";
+console.log(str.toUpperCase())
+//2. toLowerCase 소문자 변환
+var str = "aAbBcCdD";
+console.log(str.toLowerCase())
+
+
+
+//문자열 파싱 및 변환
+//1. indexOf
+// 형태
+//문자열.indexOf(찾는 문자열)
+
+// 예시
+var str = "abcdefghijklmop"
+console.log(str.indexOf("cde"));
+// -> 2 출력
+//문자열 속에서 원하는 문자열을 찾아 그 처음 인덱스를 리턴해준다.
+//못찾을 시에 -1을 리턴
+
+//2. includes
+// 형태
+//문자열.includes(찾는 문자열)
+
+// 예시
+var str = "abcdefghijklmop"
+console.log(str.includes("cde"));
+// -> true출력
+//문자열 속에서 원하는 문자열이 있다면 true를 리턴, 없다면 false를 리턴
+
+3. replace
+// 형태
+문자열.replace(찾는 문자열, 바꿀 문자열);
+
+//예시
+var str = "abcdefghijklmop"
+console.log(str.replace("cde","change"));
+//=> abchangefghijklmop 출력
+문자열 속에서 해당 하는 문자열을 뒤에 인자로 받은 문자열로 취환한다.
+근데, 하나만 취환하기 때문에 하나가 아니라 해당하는 모두를 취환하고 싶다면 replaceAll 을 사용한다.
+
+4. split
+// 형태
+문자열.split(기준 문자열)
+
+//예시
+var str = "111a222a333a444";
+console.log(str.split("a"));
+// => [ '111', '222', '333', '444' ]
+문자열을 기준 문자열 기준으로 잘라 배열을 만들어준다.
+
+5. repeat
+// 형태
+문자열.repeat(반복횟수)
+
+//예시
+var str = "123";
+console.log(str.repeat(3));
+// => 123123123 
+해당 문자열을 반복횟수만큼 붙여서 리턴한다.
+
+
+
+
+문자열 타입 변환
+1. charCodeAt
+// 형태
+문자열.charCodeAt()
+
+//예시
+var str = "A";
+console.log(str.charCodeAt());
+// => 65
+해당 문자열을 아스키코드로 바꿨을때 값을 리턴한다.
+
+2. String.fromCharCode
+// 형태
+String.fromCharCode(숫자)
+
+//예시
+var str = "A";
+var num = str.charCodeAt();
+console.log(String.fromCharCode(num));
+// => A
+원하는 숫자에 대한 아스키 값을 리턴한다.
+
+3. toString
+// 형태
+숫자.toString(변환 형태 숫자)
+
+//예시
+var num = 10;
+console.log(num.toString(2));
+// => 1010
+원하는 숫자를 원하는 진수형태로 변환 가능
+값을 넣지 않을시, 똑같은 숫자를 문자열로만 변환
+
+
+
+Map, Set 객체 다루기
+Map 객체
+Map객체는 key,value에 해당하는 자료형태로 개인적으로 정말 많이 사용하고 있는 자료구조이다.
+
+1. set => 값 추가
+//형태
+맵 객체.set(key,value);
+
+//예시
+var map = new Map();
+
+map.set(1,"value1");
+map.set(2,"value2");
+
+console.log(map);
+// => Map(2) { 1 => 'value1', 2 => 'value2' }
+map객체.set(key,value) 형태로 넣어주면 된다.
+
+2. get => value 획득
+//형태
+맵 객체.get(key);
+
+//예시
+var map = new Map();
+
+map.set(1,"value1");
+map.set(2,"value2");
+
+console.log(map.get(2));
+// => value2
+인자로 받은 key에 해당하는 value를 리턴한다.
+
+3. has => 값 있는지 체크
+//형태
+맵 객체.has(key);
+
+//예시
+var map = new Map();
+
+map.set(1,"value1");
+map.set(2,"value2");
+
+console.log(map.has(2));
+// => true
+console.log(map.has(3));
+// => false
+인자로 받은 key가 있는지 체크 true/false 리턴
+
+4. delete => 값 지우기
+//형태
+맵 객체.delete(key);
+
+//예시
+var map = new Map();
+
+map.set(1,"value1");
+map.set(2,"value2");
+
+map.delete(2);
+
+console.log(map.has(2));
+// => false
+원하는 key에 대한 값을 지운다.
+
+5. size => Map의 요소 개수
+//형태
+맵 객체.size;
+
+//예시
+var map = new Map();
+
+map.set(1,"value1");
+map.set(2,"value2");
+
+console.log(map.size);
+// => 2
+map의 개수를 구한다. 단, 함수형태로 호출해선 안된다. 주의해야한다.
+
+6. Map 객체 순환하기
+//형태
+for(let [key,value] of 맵 객체){...}
+
+//예시
+var map = new Map();
+
+map.set(1,{id:"aaa",password:1111});
+map.set(2,{id:"bbb",password:2222});
+map.set(3,{id:"ccc",password:3333});
+
+
+for(let[key,value] of map){
+    console.log(value.id);
+}
+// => aaa
+// => bbb
+// => ccc
+7. Map 정렬하기
+//형태 => 배열로 만들어서 정렬하고 다시 Map객체로 바꿈
+var arr = [...맵 객체];
+arr.sort(...);
+var newMap = new Map(arr);
+         
+
+//예시
+var map = new Map();
+
+map.set(1,{id:"aaa",password:2222});
+map.set(2,{id:"bbb",password:3333});
+map.set(3,{id:"ccc",password:1111});
+
+var arr = [...map];
+arr.sort((a,b)=>{
+    if(a[1].password<b[1].password){
+        return 1;
+    }
+    else return -1;
+})
+
+var newMap = new Map(arr);
+
+console.log(newMap);
+
+// 출력
+Map(3) {
+  2 => { id: 'bbb', password: 3333 },
+  1 => { id: 'aaa', password: 2222 },
+  3 => { id: 'ccc', password: 1111 }
+}
+
+
+
+Set
+이는 중복을 허용하지 않는 value를 가진 자료구조이다.
+
+1. value 추가
+1. add => 값 추가
+//형태
+셋 객체.add(value);
+
+//예시
+var set = new Set();
+
+set.add("value1");
+set.add("value2");
+
+console.log(set);
+// => Set(2) { 'value1', 'value2' }
+Set객체.add(value) 형태로 넣어주면 된다.
+
+2. has => 값 있는지 체크
+//형태
+셋 객체.has(value);
+
+//예시
+var set = new Set();
+
+set.add("value1");
+set.add("value2");
+
+console.log(set.has("value1"));
+// => true
+console.log(set.has("value3"));
+// => false
+인자로 받은 value가 있는지 체크 true/false 리턴
+
+3. delete => 값 지우기
+//형태
+셋 객체.delete(values);
+
+//예시
+var set = new Set();
+
+set.add("value1");
+set.add("value2");
+
+set.delete("value2");
+
+console.log(set.has("value2"));
+// => false
+원하는 value에 대한 값을 지운다.
+
+4. size => Map의 요소 개수
+//형태
+셋 객체.size;
+
+//예시
+var set = new Set();
+
+set.add("value1");
+set.add("value2");
+
+console.log(set.size);
+// => 2
+set의 요소 개수를 구한다. 단, 맵과 마찬가지로 함수형태로 호출해선 안된다. 주의해야한다.
+
+5. Set 객체 순환하기
+//형태
+for(let value of 셋 객체){...}
+
+//예시
+var set = new Set();
+
+set.add({id:"aaa",password:1111});
+set.add({id:"bbb",password:2222});
+set.add({id:"ccc",password:3333});
+
+for(let value of set){
+    console.log(value.id);
+}
+// => aaa
+// => bbb
+// => ccc
+6. Set 정렬하기
+맵과 마찬가지로 배열로 갔다가 정렬하고 다시 Set으로 오는 과정을 취한다.
+
+//형태 => 배열로 만들어서 정렬하고 다시 Set객체로 바꿈
+var arr = [...셋 객체];
+arr.sort(...);
+var newSet = new Set(arr);
+         
+
+//예시
+var set = new Set();
+
+set.add({id:"aaa",password:2222});
+set.add({id:"bbb",password:1111});
+set.add({id:"ccc",password:3333});
+
+var sortArr = [...set];
+sortArr.sort((a,b)=>{
+    if(a.password>b.password){
+        return 1;
+    }
+    else{
+        return -1;
+    }
+})
+
+var newSet = new Set(sortArr);
+console.log(newSet);
+
+// 출력
+Set(3) {
+  { id: 'bbb', password: 1111 },
+  { id: 'aaa', password: 2222 },
+  { id: 'ccc', password: 3333 }
+}
+
+
+
+Array Method
+1. forEach
+for문과 같은 순환 문
+
+//형태
+배열.forEach((element,index)=>{
+	...
+})
+
+//예시
+var arr = [{name:"aaa", number:1111},{name:"bbb", number:2222},{name:"ccc", number:3333} ];
+
+arr.forEach((element,index)=>{
+    console.log("element=",element);
+    console.log("index=",index);
+}) 
+
+// 출력
+element= { name: 'aaa', number: 1111 }
+index= 0
+element= { name: 'bbb', number: 2222 }
+index= 1
+element= { name: 'ccc', number: 3333 }
+index= 2
+
+2. map
+map은 배열에서 어떤 과정을 거친 배열을 만들어낼때 많이 쓴다. return 문에 해당하는 값으로 배열을 추가한다. 순환하고 있는 요소를 리턴 값과 바꾼다고 생각하면 이해하기에 편하다.
+
+//형태
+배열.map((element,index)=>{
+	...
+  return 만든 배열 값 
+})
+
+var arr = [{name:"aaa", number:1111},{name:"bbb", number:2222},{name:"ccc", number:3333} ];
+
+var mapArr = arr.map((element)=>{
+    element.number = element.number*2;
+    return element;
+})
+
+console.log(mapArr);
+
+//출력
+[
+  { name: 'aaa', number: 2222 },
+  { name: 'bbb', number: 4444 },
+  { name: 'ccc', number: 6666 }
+]
+
+3. filter
+배열에서 특정 조건에 해당하는 것을 걸러 배열을 만드는 method이다. 중괄호 안에서 true or false를 리턴하면 된다. true인 것을 거른다.
+
+//형태
+배열.filter((element, index)=>{
+   // 조건...
+   return true;
+  // 조건...
+	return false;
+})
+
+//예시
+var arr = [{name:"aaa", number:1111},{name:"bbb", number:2222},{name:"ccc", number:3333} ];
+
+var filterArr = arr.filter((element,index)=>{
+    console.log(index);
+    if(element.number>2000) return true;
+    else return false;
+})
+console.log(filterArr);
+
+//출력
+0
+1
+2
+[ { name: 'bbb', number: 2222 }, { name: 'ccc', number: 3333 } ]
+
+4. reduce
+배열을 순회하면서, 한 변수에 어떤 과정을 거칠때 많이 사용한다.
+
+//형태
+배열.reduce((변수, element)=>{
+	return 변수로 바꿀 값
+},초기값)
+
+//예시
+var arr = [{name:"aaa", number:1111},{name:"bbb", number:2222},{name:"ccc", number:3333} ];
+
+
+var sumArr = arr.reduce((a,b)=>{
+    return a+b.number;
+},0);
+
+console.log(sumArr);
+
+//출력
+13332
+
+
+Array 생성
+1. new Array()
+이는 배열 객체를 만드는 것이다. 여기서 fill(채울 요소) 를 통해서 원하는 값으로 채울 수 있다.
+
+//형태
+new Array(배열 크기)
+
+//예시
+var arr= new Array(3).fill(5);
+console.log(arr);
+// => [ 5, 5, 5 ]
+
+
+2. Array.from
+이는 인자에 따라 배열을 생성하는 방식이 달라진다.
+
+1. length 인자 던져주기
+//형태
+Array.from({length:배열 개수},넣을 함수)
+
+// 예시
+var arr= Array.from({length:5},(value,index)=>index);
+console.log(arr);
+// => [ 0, 1, 2, 3, 4 ]
+2. 다른 배열 던져주기
+길이 대신에 배열을 던져줘서 map 메소드처럼 사용할 수 있다.
+
+var otherArr = [1,2,3,4,5];
+
+var arr= Array.from(otherArr,(element,index)=>element*2);
+console.log(arr);
+// => [ 2, 4, 6, 8, 10 ]
