@@ -24,3 +24,30 @@ function solution(answers) {
 
   return answer;
 }
+
+//2try
+function solution(answers) {
+  let answer = [];
+  let one = "12345"; //5
+  let two = "21232425"; //8
+  let three = "3311224455"; //10
+  const arr = [0, 0, 0];
+
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i] == one[i % 5]) arr[0]++;
+    if (answers[i] == two[i % 8]) arr[1]++;
+    if (answers[i] == three[i % 10]) arr[2]++;
+  }
+
+  let max = Math.max(...arr);
+
+  console.log(max);
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === max) {
+      answer.push(i + 1);
+    }
+  }
+
+  return answer;
+}
