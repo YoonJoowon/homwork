@@ -1,16 +1,15 @@
-function solution(array, commands) {
-  let answer = [];
+function solution(a, b, n) {
+  let answer = 0;
 
-  for (i = 0; i < commands.length; i++) {
-    let commandsArray = commands[i];
-    // console.log(commandsArray)
+  while (n >= a) {
+    const remain = n % a;
 
-    let sliceArray = array.slice([commands[i][0] - 1], [commands[i][1]]);
-    sliceArray.sort(function (a, b) {
-      return a - b;
-    });
+    n = Math.floor(n / a) * b;
 
-    answer.push(sliceArray[commandsArray[2] - 1]);
+    answer += n;
+
+    n += remain;
   }
+
   return answer;
 }
