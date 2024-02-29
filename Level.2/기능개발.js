@@ -20,3 +20,5 @@ function solution(progresses, speeds) {
 
   return answer;
 }
+
+//try 못풀었음

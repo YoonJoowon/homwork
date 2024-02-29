@@ -37,6 +37,7 @@ function solution(answers) {
     if (answers[i] == one[i % 5]) arr[0]++;
     if (answers[i] == two[i % 8]) arr[1]++;
     if (answers[i] == three[i % 10]) arr[2]++;
+    // 여기서 '==' 하는 이유는 위에 문자열로 정렬하고 아래는 배열형식이기 때문에 type의 제한을 '==='를 쓰지않아서 풀어줌
   }
 
   let max = Math.max(...arr);

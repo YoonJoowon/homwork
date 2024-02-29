@@ -33,6 +33,8 @@ function solution(sizes) {
     sizes[i].sort((a, b) => b - a);
   }
 
+  // 미리 가로와 세로 길이중 큰숫자들을 정렬해야하는 것이 중요
+
   for (let i = 0; i < sizes.length; i++) {
     left.push(sizes[i][0]);
     right.push(sizes[i][1]);
