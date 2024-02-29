@@ -33,3 +33,27 @@ function solution(s) {
 
   return answer;
 }
+
+//2try
+function solution(s) {
+  const arr = s.split("");
+  let last = arr.length;
+  let stack = 1;
+
+  for (i = 1; i < last; i++) {
+    if (stack < 0) {
+      break;
+    }
+    if (arr[i] == ")") {
+      stack -= 1;
+    } else if (arr[i] == "(") {
+      stack += 1;
+    }
+  }
+
+  if (stack !== 0) {
+    return false;
+  }
+
+  return true;
+}
