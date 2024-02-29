@@ -18,3 +18,5 @@ function solution(nums) {
 
   return arr.length > max ? max : arr.length;
 }
+
+//3try
